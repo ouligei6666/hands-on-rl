@@ -1,5 +1,23 @@
 # 动手学强化学习
 
+依赖指南
+
+注意：python==3.8
+
+gym可以不用安装特定版本号
+
+ma-gym安装
+```shell
+cd ma-gym
+pip install -e .
+
+```
+
+注意不要自己重新git clone原始的ma-gym，一定要用本仓库中的ma-gym，本仓库对ma-gym进行了修复
+
+---
+
+
 Tips: 若运行gym环境的代码时遇到报错，请尝试pip install gym==0.18.3安装此版本的gym库，若仍有问题，欢迎提交issue！
 
 欢迎来到《动手学强化学习》（Hands-on Reinforcement Learning）的地带。该系列从强化学习的定义等基础讲起，一步步由浅入深，介绍目前一些主流的强化学习算法。每一章内容都是一个Jupyter Notebook，内含详细的图文介绍和代码讲解。
