@@ -14,7 +14,19 @@ class ReplayBuffer:
     def sample(self, batch_size): 
         transitions = random.sample(self.buffer, batch_size)
         state, action, reward, next_state, done = zip(*transitions)
-        return np.array(state), action, reward, np.array(next_state), done 
+        def _maybe_stack(items):
+            if not items:
+                return items
+            first = items[0]
+            if isinstance(first, (list, tuple)):
+                return list(items)
+            try:
+                return np.stack(items)
+            except Exception:
+                return list(items)
+
+        return (_maybe_stack(state), _maybe_stack(action), _maybe_stack(reward),
+                _maybe_stack(next_state), _maybe_stack(done))
 
     def size(self): 
         return len(self.buffer)
